@@ -51,6 +51,41 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\fabmdl2.ttf" />
 	  <None Remove="Resources\Fonts\fa_solid.ttf" />
+	  <None Remove="Resources\Images\arrow_down.svg" />
+	  <None Remove="Resources\Images\arrow_up.svg" />
+	  <None Remove="Resources\Images\budae_jjigae.png" />
+	  <None Remove="Resources\Images\card.png" />
+	  <None Remove="Resources\Images\coffee.png" />
+	  <None Remove="Resources\Images\coin.svg" />
+	  <None Remove="Resources\Images\customer.svg" />
+	  <None Remove="Resources\Images\discount.svg" />
+	  <None Remove="Resources\Images\filter.svg" />
+	  <None Remove="Resources\Images\food_01.png" />
+	  <None Remove="Resources\Images\food_02.png" />
+	  <None Remove="Resources\Images\graph.svg" />
+	  <None Remove="Resources\Images\heart.svg" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\iced_tea.png" />
+	  <None Remove="Resources\Images\info.svg" />
+	  <None Remove="Resources\Images\jajangmyeon.png" />
+	  <None Remove="Resources\Images\janchi_guksu.png" />
+	  <None Remove="Resources\Images\japchae.png" />
+	  <None Remove="Resources\Images\logo.svg" />
+	  <None Remove="Resources\Images\logout.svg" />
+	  <None Remove="Resources\Images\message.svg" />
+	  <None Remove="Resources\Images\milk.png" />
+	  <None Remove="Resources\Images\naengmyeon.png" />
+	  <None Remove="Resources\Images\noimage.png" />
+	  <None Remove="Resources\Images\notification.svg" />
+	  <None Remove="Resources\Images\order.svg" />
+	  <None Remove="Resources\Images\qr_code.png" />
+	  <None Remove="Resources\Images\setting.svg" />
+	  <None Remove="Resources\Images\setting_on.svg" />
+	  <None Remove="Resources\Images\soda.png" />
+	  <None Remove="Resources\Images\soup.png" />
+	  <None Remove="Resources\Images\store.svg" />
+	  <None Remove="Resources\Images\tea.png" />
+	  <None Remove="Resources\Images\unlock.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

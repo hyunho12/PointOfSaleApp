@@ -8,17 +8,100 @@
     FlyoutWidth="104"
     Shell.FlyoutBehavior="Locked">
 
-    
+    <Shell.Resources>
+        <ControlTemplate x:Key="MenuItemTemplate">
+            <Grid RowDefinitions="Auto">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource DarkBh1Brush}"/>
+                                    
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+
+                <Border x:Name="OuterBorder" Background="Transparent" Stroke="{StaticResource DarkBg1Brush}" StrokeThickness="0"
+                        HorizontalOptions="Fill" HeightRequest="70" Margin="15,0,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12,0,12,0"/>
+                    </Border.StrokeShape>
+                </Border>
+
+                <Border x:Name="InnerBorder" Background="Transparent" Margin="20" HorizontalOptions="Center" VerticalOptions="Center"
+                            Stroke="{StaticResource PrimaryBrush}" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                </Border>
+
+                <!--#002 ControlTemplate을 실행시키는 호출쪽의 컨텐츠를 실행시키는 위치를 나타내는 placeholder같은 기능 -->
+                <ContentPresenter x:Name="CP"/>
+            </Grid>
+        </ControlTemplate>
+    </Shell.Resources>
 
 
     <Shell.FlyoutContentTemplate>
         <DataTemplate>
-            <Grid RowDefinitions="*,*,*,*,*,*,*,*" Background="{StaticResource DarkBg2Brush}"
+            <Grid RowDefinitions="*,*,*,*,*,*,*,*" Background="{StaticResource DarkBg1}"
                   RadioButtonGroup.GroupName="Menu" RadioButtonGroup.SelectedValue="{Binding SelectedRoute}">
 
-                <Image Source="logo.png" Grid.Row="0" Margin="0,15"/>
-                
-                <RadioButton
+                <Grid.Resources>
+                    <!--#001 ControlTemplate으로 8개의 Row 데이터을 MenuItemTemplate을 통해 보낸다.-->
+                    <Style TargetType="RadioButton">
+                        <Setter Property="ControlTemplate" Value="{StaticResource MenuItemTemplate}"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Image Grid.Row="0" Source="logo.png" Margin="0,15" Aspect="AspectFit"/>
+
+                <RadioButton Grid.Row="1" Value="home">
+                    <RadioButton.Content>
+                        <Image Source="home.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Grid.Row="2" Value="dashboard">
+                    <RadioButton.Content>
+                        <Image Source="graph.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Grid.Row="3" Value="setting">
+                    <RadioButton.Content>
+                        <Image Source="setting.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Grid.Row="4" Value="discount">
+                    <RadioButton.Content>
+                        <Image Source="discount.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Grid.Row="5" Value="message">
+                    <RadioButton.Content>
+                        <Image Source="message.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Grid.Row="6" Value="notification">
+                    <RadioButton.Content>
+                        <Image Source="notification.png" Aspect="AspectFit"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <Image Grid.Row="7" Source="logout.png" Margin="0,15" Aspect="AspectFit"/>
             </Grid>
         </DataTemplate>
     </Shell.FlyoutContentTemplate>
