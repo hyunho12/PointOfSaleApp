@@ -6,6 +6,17 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		if(DeviceInfo.Idiom == DeviceIdiom.Phone)
+		{
+			MainPage = new AppShellMobile();
+		}
+		else if(DeviceInfo.Idiom == DeviceIdiom.Tablet)
+		{
+			MainPage = new AppShell();
+		}
+		else
+		{
+            MainPage = new AppShell();
+        }		
 	}
 }
