@@ -2,11 +2,83 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to HomePage!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:fnt="clr-namespace:PointOfSaleApp.Controls"
+             Shell.NavBarIsVisible="False"
+             Title="">
+
+
+    <Grid RowDefinitions="100,70,*" ColumnDefinitions="*,400" x:Name="PageGrid"
+          Margin="24,24,0,0">
+
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label Text="Main Menu" Style="{StaticResource LargeTitle}"/>
+            <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:yyyy-mm--dd'}"/>
+        </VerticalStackLayout>
+        <Border HorizontalOptions="End" HeightRequest="48" WidthRequest="120" Background="{StaticResource DarkBg1Brush}"
+                StrokeThickness="1" Stroke="{StaticResource SecondaryBrush}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8"/>
+            </Border.StrokeShape>
+
+            <HorizontalStackLayout>
+                <Image Source="{FontImage FontFamily=FontAwesome, Glyph={x:Static fnt:FontAwesomeCode.Search}, Size=14}" VerticalOptions="Center"/>
+                <Entry Placeholder="검색..." WidthRequest="350" Background="Transparent" FontSize="14"
+                       TextColor="Blue" HorizontalOptions="Center" PlaceholderColor="{StaticResource TextSecondary}"/>
+            </HorizontalStackLayout>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <HorizontalStackLayout Spacing="10">
+                <BindableLayout.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Noodles</x:String>
+                        <x:String>Rice</x:String>
+                        <x:String>Appetizers</x:String>
+                        <x:String>Desserts</x:String>
+                        <x:String>Beverage</x:String>
+                    </x:Array>
+                </BindableLayout.ItemsSource>
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Content="{Binding .}" Value="{Binding .}">
+                            <RadioButton.ControlTemplate>
+                                <ControlTemplate>
+                                    <Grid RowDefinitions="30,4">
+                                        <Label Grid.Row="0" x:Name="TextLabel" Text="{TemplateBinding Content}"/>
+                                        <BoxView Grid.Row="1" x:Name="Indicator" Color="Transparent"/>
+
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CheckedStates">
+                                                    <VisualState x:Name="Checked">
+                                                        <VisualState.Setters>
+                                                            <Setter TargetName="TextLabel" Property="Label.TextColor" Value="{StaticResource Primary}"/>
+                                                            <!--<Setter TargetName="Indicator" Property="BoxView.Color" Value="Blue"/>-->
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+
+                                                    <VisualState x:Name="Unchecked">
+                                                        <VisualState.Setters>
+                                                            <Setter TargetName="TextLabel" Property="Label.TextColor" Value="Black"/>
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateGroupList>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Grid>
+                                </ControlTemplate>
+                            </RadioButton.ControlTemplate>
+                        </RadioButton>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <ScrollView Grid.Row="2">
+            
+        </ScrollView>
+        
+    </Grid>
 </ContentPage>
