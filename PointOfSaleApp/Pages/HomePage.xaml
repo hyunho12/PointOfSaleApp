@@ -4,9 +4,13 @@
              x:Class="PointOfSaleApp.Pages.HomePage"
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              xmlns:fnt="clr-namespace:PointOfSaleApp.Controls"
+             xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
              Shell.NavBarIsVisible="False"
              Title="">
 
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel/>
+    </ContentPage.BindingContext>
 
     <Grid RowDefinitions="100,70,*" ColumnDefinitions="*,400" x:Name="PageGrid"
           Margin="24,24,0,0">

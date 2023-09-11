@@ -9,8 +9,23 @@
         <Setter Property="FontFamily" Value="OpenSansSemiBold"/>
     </Style>
 
+    <Style TargetType="Label" x:Key="Title1">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="OpenSansSemiBold"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="Title2">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="OpenSansSemiBold"/>
+    </Style>
+
     <Style TargetType="Label" Class="Primary">
         <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="Headline">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="OpenSansSemiBold"/>
     </Style>
 
     

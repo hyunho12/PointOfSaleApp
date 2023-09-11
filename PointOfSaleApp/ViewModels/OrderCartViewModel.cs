@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace PointOfSaleApp.ViewModels
 {
-    public partial class HomePageViewModel : ObservableObject
+    public partial class OrderCartViewModel : ObservableObject
     {
-        public HomePageViewModel() 
-        {
 
-        }
     }
 }

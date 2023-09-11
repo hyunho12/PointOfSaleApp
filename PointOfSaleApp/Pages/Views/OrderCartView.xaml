@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PointOfSaleApp.Pages.Views.OrderCartView"
+             xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels">
+
+    <ContentView.BindingContext>
+        <vm:OrderCartViewModel/>
+    </ContentView.BindingContext>
+
+    <Grid RowDefinitions="*,100">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="20">
+                <Label Text="Order #4773" Style="{StaticResource Title1}"/>
+                <HorizontalStackLayout Spacing="12">
+                    <HorizontalStackLayout.Resources>
+                        <Style TargetType="RadioButton">
+                            <Setter />
+                        </Style>
+                    </HorizontalStackLayout.Resources>
+
+                    <RadioButton Content="Dine In" IsChecked="True"/>
+                    <RadioButton Content="Carry out"/>
+                    <RadioButton Content="Delivery"/>
+
+                </HorizontalStackLayout>
+
+                <Grid ColumnDefinitions="6*,2*,2*">
+                    <Label Grid.Column="0" Text="Item"/>
+                    <Label Grid.Column="1" Text="Qty"/>
+                    <Label Grid.Column="2" Text="Price"/>
+                </Grid>
+                    
+            </VerticalStackLayout>    
+        </ScrollView>
+        
+        
+    </Grid>
+</ContentView>

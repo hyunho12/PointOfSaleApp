@@ -95,10 +95,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\Views\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="AppShellMobile.xaml.cs">
 	    <DependentUpon>AppShellMobile.xaml</DependentUpon>
 	  </Compile>
@@ -118,6 +114,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Views\OrderCartView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
