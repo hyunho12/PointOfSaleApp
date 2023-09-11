@@ -13,7 +13,8 @@ public static class MauiProgram
 			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
-
+				fonts.AddFont("fa_solid.ttf", "FontAwesome");
+				fonts.AddFont("fabmd12", "Fabric");
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
