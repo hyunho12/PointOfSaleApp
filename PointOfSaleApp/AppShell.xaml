@@ -72,37 +72,37 @@
 
                 <RadioButton Grid.Row="1" Value="home">
                     <RadioButton.Content>
-                        <Image Source="home.png" Aspect="AspectFit"/>
+                        <Image Source="home.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton Grid.Row="2" Value="dashboard">
                     <RadioButton.Content>
-                        <Image Source="graph.png" Aspect="AspectFit"/>
+                        <Image Source="graph.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton Grid.Row="3" Value="setting">
                     <RadioButton.Content>
-                        <Image Source="setting.png" Aspect="AspectFit"/>
+                        <Image Source="setting.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton Grid.Row="4" Value="discount">
                     <RadioButton.Content>
-                        <Image Source="discount.png" Aspect="AspectFit"/>
+                        <Image Source="discount.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton Grid.Row="5" Value="message">
                     <RadioButton.Content>
-                        <Image Source="message.png" Aspect="AspectFit"/>
+                        <Image Source="message.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton Grid.Row="6" Value="notification">
                     <RadioButton.Content>
-                        <Image Source="notification.png" Aspect="AspectFit"/>
+                        <Image Source="notification.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 

@@ -8,16 +8,18 @@ namespace PointOfSaleApp.Models
 {
     public class Item
     {
-        public string title { get; set; }
-        public int quantity { get; set; }
-        public double price { get; set; }
-        public string image { get; set; }
+        public string Title { get; set; }
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public string Image { get; set; }
 
         public double SubTotal
         {
-            get => price * quantity;
+            get => Price * Quantity;
         }
-    }
+
+        public ItemCategory Category { get; set; }
+    }     
 
     public enum ItemCategory
     {

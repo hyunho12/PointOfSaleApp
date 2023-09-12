@@ -7,21 +7,21 @@ namespace PointOfSaleApp.Models
         public double Tip { get; set; }
         public byte[] SignatureData { get; set; }
 
-        public List<Item> items { get; set; }
+        public List<Item> Items { get; set; }
 
-        public string States { get; set; }
-        public OrderType OrderType = OrderType.DineIn;
+        public string Status { get; set; }
+        private OrderType OrderType = OrderType.DineIn;
 
         public string Total
         {
             get
             {
-                var tot = items.Sum(i => (i.price * i.quantity));
+                var tot = Items.Sum(i => (i.Price * i.Quantity));
                 if (Tip != 0)
                 {
                     tot = tot + (tot * Tip);
                 }
-                return tot.ToString();
+                return tot.ToString("N2");
             }
         }
     }

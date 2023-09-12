@@ -2,6 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.Views.OrderCartView"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels">
 
     <ContentView.BindingContext>
@@ -12,10 +13,11 @@
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="20">
                 <Label Text="Order #4773" Style="{StaticResource Title1}"/>
+                
                 <HorizontalStackLayout Spacing="12">
                     <HorizontalStackLayout.Resources>
                         <Style TargetType="RadioButton">
-                            <Setter />
+                            <Setter Property="ControlTemplate" Value="{StaticResource ButtonRadioTemplate}" />
                         </Style>
                     </HorizontalStackLayout.Resources>
 
@@ -25,15 +27,53 @@
 
                 </HorizontalStackLayout>
 
-                <Grid ColumnDefinitions="6*,2*,2*">
+                <Grid ColumnDefinitions="50*,25*,25*">
                     <Label Grid.Column="0" Text="Item"/>
                     <Label Grid.Column="1" Text="Qty"/>
                     <Label Grid.Column="2" Text="Price"/>
                 </Grid>
-                    
+
+                <BoxView Style="{StaticResource HRule}"/>
+
+                <VerticalStackLayout Spacing="12" BindableLayout.ItemsSource="{Binding Order.Items}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="50*,25*,25*">
+                                <HorizontalStackLayout Spacing="8">
+                                    <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Image}"/>
+
+                                    <Label Style="{StaticResource Headline}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Title}"/>
+                                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                                <Span TextColor="{StaticResource TextSecondary}" FontSize="12" Text="{Binding Price, StringFormat='${0}'}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </HorizontalStackLayout>
+
+                                <Border Grid.Column="1" HeightRequest="44" WidthRequest="44" Background="{StaticResource DarkBg1Brush}"
+                                        Stroke="{StaticResource SecondaryBrush}" StrokeThickness="1">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8"/>
+                                    </Border.StrokeShape>
+
+                                    <Entry MaxLength="2" WidthRequest="44" HorizontalTextAlignment="Center" Keyboard="Numeric"
+                                           Background="Transparent" TextColor="White" HorizontalOptions="Center"
+                                           VerticalOptions="Center" Text="{Binding Quantity}"/>
+                                </Border>
+
+                                <Label Grid.Column="2" Text="{Binding SubTotal, StringFormat='${0}'}"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
             </VerticalStackLayout>    
         </ScrollView>
-        
-        
+
+        <Button Grid.Row="1" Text="주문하기" HorizontalOptions="Fill" Margin="24"/>
     </Grid>
 </ContentView>

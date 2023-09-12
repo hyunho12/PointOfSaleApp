@@ -5,6 +5,8 @@
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              xmlns:fnt="clr-namespace:PointOfSaleApp.Controls"
              xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
+             xmlns:view="clr-namespace:PointOfSaleApp.Pages.Views"
+             xmlns:m="clr-namespace:PointOfSaleApp.Models"
              Shell.NavBarIsVisible="False"
              Title="">
 
@@ -59,13 +61,14 @@
                                                     <VisualState x:Name="Checked">
                                                         <VisualState.Setters>
                                                             <Setter TargetName="TextLabel" Property="Label.TextColor" Value="{StaticResource Primary}"/>
-                                                            <!--<Setter TargetName="Indicator" Property="BoxView.Color" Value="Blue"/>-->
+                                                            <Setter TargetName="Indicator" Property="BoxView.Color" Value="{StaticResource Primary}"/>
                                                         </VisualState.Setters>
                                                     </VisualState>
 
                                                     <VisualState x:Name="Unchecked">
                                                         <VisualState.Setters>
                                                             <Setter TargetName="TextLabel" Property="Label.TextColor" Value="Black"/>
+                                                            <Setter TargetName="Indidator" Property="BoxView.Color" Value="Transparent"/>
                                                         </VisualState.Setters>
                                                     </VisualState>
                                                 </VisualStateGroup>
@@ -80,9 +83,35 @@
             </HorizontalStackLayout>
         </Grid>
 
-        <ScrollView Grid.Row="2">
-            
-        </ScrollView>
         
+        <ScrollView Grid.Row="2">
+            <Grid RowDefinitions="70,*" BindableLayout.ItemsSource="{Binding Products}">
+                <Label Grid.Row="0" Text="Choose Dishes" Style="{StaticResource Title1}"/>
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate >
+                        <Grid RowDefinitions="30,230" WidthRequest="200">
+                            <Border Grid.Row="1" Background="{StaticResource DarkBg2Brush}"
+                                    Stroke="{StaticResource DarkBg1Brush}" StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="17"/>
+                                </Border.StrokeShape>
+                            </Border>
+                            
+                            <VerticalStackLayout VerticalOptions="End" Spacing="6" Margin="20,0,20,20" Grid.RowSpan="2" >
+                                <Label Text="{Binding Title}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource Title2}"/>
+                                <Label Text="{Binding Price, StringFormat='${0}'}" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+
+                            <Image Grid.RowSpan="2" VerticalOptions="Start"
+                                   Source="{Binding Image, FallbackValue=food_01.png}" HorizontalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>                    
+            </Grid>
+        </ScrollView>
+
+        <view:OrderCartView Grid.Column="1" Grid.RowSpan="3"/>
+
     </Grid>
 </ContentPage>
