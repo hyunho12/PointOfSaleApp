@@ -4,6 +4,7 @@
              x:Class="PointOfSaleApp.Pages.DashboardPage"
              xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:fnt="clr-namespace:PointOfSaleApp.Controls"
              Shell.NavBarIsVisible="False"
              Title="DashboardPage">
 
@@ -11,11 +12,168 @@
         <vm:DashboardViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="100, *" ColumnDefinitions="*,400" RowSpacing="24">
+    <Grid RowDefinitions="100, *" ColumnDefinitions="*,400" RowSpacing="24" Margin="24,0,0,0">
         <VerticalStackLayout>
             <Label Text="Dashboard" Style="{StaticResource LargeTitle}"/>
             <Label Text="{Binding Source={x:Static sys:DateTime.Today}, StringFormat='{0:dddd, yyyy, MMMM dd}'}"/>
             <BoxView Style="{StaticResource HRule}" Margin="0,24,0,0"/>
         </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="0,24">
+            <Grid RowDefinitions="150,*" RowSpacing="24"
+                  ColumnDefinitions="*,*,*" ColumnSpacing="24">
+
+                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource DarkBorderView}">
+                    <Grid RowDefinitions="45,*,24" Margin="16">
+                        <HorizontalStackLayout Spacing="12">
+                            <Border WidthRequest="38" HeightRequest="38" VerticalOptions="Center"
+                                    Style="{StaticResource LightBorderView}">
+                                <Image Source="coin.png" HorizontalOptions="Center"/>
+                            </Border>
+                            <Label Text="+32.40%" class="Percent,Down"/>
+                            <Image Source="arrow_up.png"/>
+                        </HorizontalStackLayout>
+                        <Label Text="$10,482" Grid.Row="1" class="Data"/>
+                        <Label Text="Total Revenue" Grid.Row="2" class="Label"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource DarkBorderView}">
+                    <Grid RowDefinitions="45,*,24" Margin="16">
+                        <HorizontalStackLayout Spacing="12">
+                            <Border WidthRequest="38" HeightRequest="38"
+                                    VerticalOptions="Center" Style="{StaticResource LightBorderView}">
+                                <Image Source="order.png" HorizontalOptions="Center"/>
+                            </Border>
+                            <Label Text="-12.40%" class="Percent,Down"/>
+                            <Image Source="arrow_down.png"/>
+                        </HorizontalStackLayout>
+                        <Label Text="23,456" Grid.Row="1" class="Data"/>
+                        <Label Text="Total Orders" Grid.Row="2" class="Label"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource DarkBorderView}">
+                    <Grid RowDefinitions="45,*,24" Margin="16">
+                        <HorizontalStackLayout Spacing="12">
+                            <Border WidthRequest="38" HeightRequest="38" VerticalOptions="Center"
+                                    Style="{StaticResource LightBorderView}">
+                                <Image Source="customer.png" HorizontalOptions="Center"/>
+                            </Border>
+                            <Label Text="+2.40%" class="Percent,Up"/>
+                            <Image Source="arrow_up.png"/>
+                        </HorizontalStackLayout>
+                        <Label Text="1,234" Grid.Row="1" class="Data"/>
+                        <Label Text="Total Customers" Grid.Row="2" class="Label"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                        Style="{StaticResource DarkBorderView}">
+                    <Grid RowDefinitions="80,*" Margin="24">
+                        <Label Text="Order Report" Style="{StaticResource Title1}"/>
+                        <Border Grid.Row="0" Stroke="{StaticResource SecondaryBrush}" Background="Transparent"
+                                StrokeThickness="1" HorizontalOptions="End" VerticalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8"/>
+                            </Border.StrokeShape>
+                            <HorizontalStackLayout Spacing="12" Margin="14,12">
+                                <Image Source="filter.png" VerticalOptions="Center"/>
+                                <Label Text="Filter" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+
+                        <ScrollView Grid.Row="1">
+                            <VerticalStackLayout Spacing="16">
+                                <Grid ColumnDefinitions="200,*,150,150">
+                                    <Label Text="Customer" Grid.Column="0" Style="{StaticResource Headline}"/>
+                                    <Label Text="Menu" Grid.Column="1" Style="{StaticResource Headline}"/>
+                                    <Label Text="Payment" Grid.Column="2" Style="{StaticResource Headline}"/>
+                                    <Label Text="Status" Grid.Column="3" Style="{StaticResource Headline}"/>
+                                </Grid>
+
+                                <BoxView Style="{StaticResource HRule}"/>
+
+                                <Grid ColumnDefinitions="200,*,150,150">
+                                    <Label Text="David Ortinau"/>
+                                    <Label Text="Spicy Noodles" Grid.Column="1"/>
+                                    <Label Text="$5.95" Grid.Column="2"/>
+                                    <Label Text="Completed" Grid.Column="3"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="200,*,150,150">
+                                    <Label Text="David Ortinau"/>
+                                    <Label Text="Spicy Noodles" Grid.Column="1"/>
+                                    <Label Text="$5.95" Grid.Column="2"/>
+                                    <Label Text="Completed" Grid.Column="3"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="200,*,150,150">
+                                    <Label Text="David Ortinau"/>
+                                    <Label Text="Spicy Noodles" Grid.Column="1"/>
+                                    <Label Text="$5.62" Grid.Column="2"/>
+                                    <Label Text="Completed" Grid.Column="3"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ScrollView>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollView>
+
+        <Grid Grid.Column="1" Grid.RowSpan="2" RowDefinitions="*,*"
+                  RowSpacing="24" Margin="24">
+            <Border Style="{StaticResource DarkBorderView}">
+                <Grid RowDefinitions="50,1,*,84" RowSpacing="20">
+                    <Label Grid.Row="0" Text="Most Ordered" VerticalOptions="Center"
+                           Style="{StaticResource Title1}"/>
+                    <Border Grid.Row="0" Stroke="{StaticResource SecondaryBrush}"
+                            StrokeThickness="1" Background="Transparent" HorizontalOptions="End"/>
+
+                    <BoxView Grid.Row="1" Style="{StaticResource HRule}"/>
+
+                    <VerticalStackLayout Grid.Row="2" Spacing="12">
+                        
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="60,*">
+                                    <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit"
+                                           Source="food_01.png"/>
+                                    <Label Grid.Column="1" Style="{StaticResource Headline}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span>Spicy Noodle Soup</Span>
+                                                <Span Text="{x:Static sys:Environment.NewLine}"/>
+                                                <Span TextColor="{StaticResource TextSecondary}" FontSize="12">$2.29</Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                    <Button Grid.Row="3" Text="View All" HorizontalOptions="Fill"
+                            Margin="0,24,0,0"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource DarkBorderView}">
+                <Grid RowDefinitions="50,1,*" RowSpacing="20" Margin="24">
+                    <Label Grid.Row="0" Text="Order Types" VerticalOptions="Center"
+                           Style="{StaticResource Title1}"/>
+                    <Border Grid.Row="0" Background="Transparent" 
+                             Stroke="{StaticResource SecondaryBrush}"
+                             StrokeThickness="1" HorizontalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <HorizontalStackLayout Margin="14,12" Spacing="12">
+                            <Label Text="{x:Static fnt:FontAwesomeCode.ChevronDown}" FontFamily="FontAwesome" VerticalOptions="Center"/>
+                            <Label Text="Today" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </ContentPage>

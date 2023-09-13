@@ -32,9 +32,50 @@
         <Setter Property="HeightRequest" Value="2"/>
         <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource Secondary}, Light={StaticResource Secondary}}"/>
     </Style>
-    
-    
 
+    <Style x:Key="DarkBorderView" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource DarkBg2Brush}"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=8}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="LightBorderView" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource DarkBg1Brush}"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=8}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="Label" Class="Percent">
+        <Setter Property="TextColor" Value="#50D1AA"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Label" Class="Up">
+        <Setter Property="TextColor" Value="#50D1AA"/>
+    </Style>
+
+    <Style TargetType="Label" Class="Down">
+        <Setter Property="TextColor" Value="#FF7CA3"/>
+    </Style>
+
+    <Style TargetType="Label" Class="Data">
+        <Setter Property="TextColor" Value="#FFFFFF"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Label" Class="Label">
+        <Setter Property="TextColor" Value="#ABBBC2"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Image">
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
