@@ -85,29 +85,31 @@
 
         
         <ScrollView Grid.Row="2">
-            <Grid RowDefinitions="70,*" BindableLayout.ItemsSource="{Binding Products}">
-                <Label Grid.Row="0" Text="Choose Dishes" Style="{StaticResource Title1}"/>
+            <Grid RowDefinitions="70,*" >
+                <FlexLayout BindableLayout.ItemsSource="{Binding Products}" Wrap="Wrap" JustifyContent="SpaceEvenly"><!---->
+                    <Label Grid.Row="0" Text="Choose Dishes" Style="{StaticResource Title1}"/>
 
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate >
-                        <Grid RowDefinitions="30,230" WidthRequest="200">
-                            <Border Grid.Row="1" Background="{StaticResource DarkBg2Brush}"
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate >
+                            <Grid RowDefinitions="30,230" WidthRequest="200">
+                                <Border Grid.Row="1" Background="{StaticResource DarkBg2Brush}"
                                     Stroke="{StaticResource DarkBg1Brush}" StrokeThickness="1">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="17"/>
-                                </Border.StrokeShape>
-                            </Border>
-                            
-                            <VerticalStackLayout VerticalOptions="End" Spacing="6" Margin="20,0,20,20" Grid.RowSpan="2" >
-                                <Label Text="{Binding Title}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource Title2}"/>
-                                <Label Text="{Binding Price, StringFormat='${0}'}" HorizontalOptions="Center"/>
-                            </VerticalStackLayout>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="17"/>
+                                    </Border.StrokeShape>
+                                </Border>
 
-                            <Image Grid.RowSpan="2" VerticalOptions="Start"
+                                <VerticalStackLayout VerticalOptions="End" Spacing="6" Margin="20,0,20,20" Grid.RowSpan="2" >
+                                    <Label Text="{Binding Title}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource Title2}"/>
+                                    <Label Text="{Binding Price, StringFormat='${0}'}" HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+
+                                <Image Grid.RowSpan="2" VerticalOptions="Start"
                                    Source="{Binding Image, FallbackValue=food_01.png}" HorizontalOptions="Center"/>
-                        </Grid>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>                    
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
             </Grid>
         </ScrollView>
 

@@ -70,37 +70,37 @@
 
                 <Image Grid.Row="0" Source="logo.png" Margin="0,15" Aspect="AspectFit"/>
 
-                <RadioButton Grid.Row="1" Value="home">
+                <RadioButton Grid.Row="1" Value="home" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="home.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Grid.Row="2" Value="dashboard">
+                <RadioButton Grid.Row="2" Value="dashboard" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="graph.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Grid.Row="3" Value="setting">
+                <RadioButton Grid.Row="3" Value="settings" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="setting.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Grid.Row="4" Value="discount">
+                <RadioButton Grid.Row="4" Value="discount" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="discount.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Grid.Row="5" Value="message">
+                <RadioButton Grid.Row="5" Value="message" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="message.png" Aspect="Center"/>
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Grid.Row="6" Value="notification">
+                <RadioButton Grid.Row="6" Value="notification" CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Image Source="notification.png" Aspect="Center"/>
                     </RadioButton.Content>

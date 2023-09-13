@@ -2,11 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.DashboardPage"
+             xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             Shell.NavBarIsVisible="False"
              Title="DashboardPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Dashboard!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.BindingContext>
+        <vm:DashboardViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="100, *" ColumnDefinitions="*,400" RowSpacing="24">
+        <VerticalStackLayout>
+            <Label Text="Dashboard" Style="{StaticResource LargeTitle}"/>
+            <Label Text="{Binding Source={x:Static sys:DateTime.Today}, StringFormat='{0:dddd, yyyy, MMMM dd}'}"/>
+            <BoxView Style="{StaticResource HRule}" Margin="0,24,0,0"/>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
