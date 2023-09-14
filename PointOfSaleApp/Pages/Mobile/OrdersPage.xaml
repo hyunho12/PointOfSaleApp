@@ -17,8 +17,7 @@
             <BoxView Style="{StaticResource HRule}"/>
         </VerticalStackLayout>
 
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Orders}">
-
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Orders}" x:Name="CvOrder">
             <CollectionView.Header>
                 <Grid ColumnDefinitions="80,100,*" Margin="0,8" HeightRequest="40" ColumnSpacing="8">
                     <Label Text="Table" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold"/>
@@ -29,7 +28,11 @@
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="80,100,*" ColumnSpacing="8" HeightRequest="70">
+                    <Grid ColumnDefinitions="80,100,*" ColumnSpacing="8" HeightRequest="70" Margin="0,8">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PayCommand}"/>
+                        </Grid.GestureRecognizers>
+                        
                         <Border Stroke="Transparent" StrokeThickness="1" VerticalOptions="Center" HorizontalOptions="Start"
                                 HeightRequest="60" WidthRequest="60" Background="{x:Static model:Order.RandomBrush}">
                             <Border.StrokeShape>
@@ -39,7 +42,7 @@
                                 <Label Text="{Binding Table}" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>
                         </Border>
-                        <Label Text="{Binding Total}" Grid.Column="1" VerticalOptions="Center"/>
+                        <Label Text="{Binding Total, StringFormat='${0}'}" Grid.Column="1" VerticalOptions="Center"/>
                         <Label Text="{Binding Status}" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Start"/>
                     </Grid>
                 </DataTemplate>
