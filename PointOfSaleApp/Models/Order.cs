@@ -24,6 +24,18 @@ namespace PointOfSaleApp.Models
                 return tot.ToString("N2");
             }
         }
+
+        private static readonly Random _random = new Random();
+
+        private static readonly string[] brushes = new string[] { "#FFB572", "#65B0F6", "#FF7CA3", "#50D1AA", "#9290FE" };
+        public static Brush RandomBrush
+        {
+            get
+            {
+                var id = _random.Next(0,4);
+                return new SolidColorBrush(Color.Parse(brushes[id]));
+            }
+        }
     }
 
     public enum OrderType
@@ -31,5 +43,5 @@ namespace PointOfSaleApp.Models
         DineIn,
         CarryOut,
         Delivery
-    }
+    }    
 }
