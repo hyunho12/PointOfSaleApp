@@ -2,11 +2,118 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.SettingsPage"
+             xmlns:page="clr-namespace:PointOfSaleApp.ViewModels"
+             Shell.NavBarIsVisible="False"
              Title="SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Settings!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.BindingContext>
+        <page:SettingsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="Image">
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="70,*" ColumnDefinitions="275,*"
+              ColumnSpacing="24" Padding="24">
+            <Label Text="Settings" Style="{StaticResource LargeTitle}"
+                   Grid.Column="2"/>
+
+            <Border Grid.Row="1" Background="{StaticResource DarkBg2Brush}"
+                    StrokeThickness="1" Stroke="{StaticResource DarkBg2Brush}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Padding="0,12">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="heart.png"/>
+                        <Label Text="Apperance" Grid.Column="1" Style="{StaticResource Headline}"/>
+                        <Label Text="Dark and Light mode, Font size" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="store.png"/>
+                        <Label Text="Your Restaurant" Grid.Column="1" Style="{StaticResource Headline}"/>
+                        <Label Text="Lorem ipsum dolor sit amet" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="discount.png"/>
+                        <Label Text="Products Management" Grid.Column="1" Style="{StaticResource Headline}" TextColor="{StaticResource Primary}"/>
+                        <Label Text="Manage your products, pricing..." Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="notification.png"/>
+                        <Label Text="Notifications" Grid.Column="1" Style="{StaticResource Headline}"/>
+                        <Label Text="Customize your notifications" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="unlock.png"/>
+                        <Label Text="Security" Grid.Column="1" Style="{StaticResource Headline}"/>
+                        <Label Text="Configure password, PIN..." Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto"
+                          RowSpacing="4" ColumnSpacing="8" Padding="26">
+                        <Image Source="info.png"/>
+                        <Label Text="About us" Grid.Column="1" Style="{StaticResource Headline}"/>
+                        <Label Text="Lorem ipsum dolor sit amet" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subhead}"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="1" StrokeThickness="1"
+                    Stroke="{StaticResource DarkBg2Brush}" Background="{StaticResource DarkBg2Brush}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Grid Margin="24">
+                        <Label Text="Products Management" VerticalOptions="Center"/>
+                        <Button Text="Manage Categories" HorizontalOptions="End" VerticalOptions="Center"
+                                Command="{Binding NotImplementedCommand}"/>
+                    </Grid>
+
+                    <Label Text="All Products" Style="{StaticResource Headline}" TextColor="{StaticResource Primary}" Margin="24,8"/>
+                    <BoxView Style="{StaticResource HRule}"/>
+
+                    <ScrollView>
+                        <FlexLayout BindableLayout.ItemsSource="{Binding Products}"
+                                    VerticalOptions="Fill" HorizontalOptions="Center" Wrap="Wrap" JustifyContent="SpaceEvenly">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="Transparent" WidthRequest="260"
+                                           HeightRequest="300" Background="{StaticResource Neutral}"
+                                           CornerRadius="12" Padding="0">
+
+                                        <Grid RowDefinitions="2*,1*,44" RowSpacing="8">
+                                            <Image Source="{Binding Image}" HorizontalOptions="Center"
+                                                   VerticalOptions="Center" Margin="22"/>
+                                            <Label Grid.Row="1" Text="{Binding Title}" HorizontalOptions="Center"
+                                                   VerticalOptions="End"/>
+                                            <Grid Grid.Row="2" Background="{StaticResource TertiaryBrush}">
+                                                <Label Text="Edit" TextColor="{StaticResource Primary}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </ScrollView>
 </ContentPage>

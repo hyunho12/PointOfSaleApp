@@ -28,6 +28,11 @@
         <Setter Property="FontFamily" Value="OpenSansSemiBold"/>
     </Style>
 
+    <Style TargetType="Label" x:Key="Subhead">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextColor" Value="{StaticResource TextSecondary}"/>
+    </Style>
+
     <Style TargetType="BoxView" x:Key="HRule">
         <Setter Property="HeightRequest" Value="2"/>
         <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource Secondary}, Light={StaticResource Secondary}}"/>

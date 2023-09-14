@@ -172,6 +172,9 @@
                             <Label Text="Today" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
                     </Border>
+                    <BoxView Grid.Row="1" Style="{StaticResource HRule}"/>
+                    
+                    
                 </Grid>
             </Border>
         </Grid>
