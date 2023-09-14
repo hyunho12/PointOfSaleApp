@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using PointOfSaleApp.Pages.Mobile;
+using PointOfSaleApp.ViewModels;
 
 namespace PointOfSaleApp;
 
@@ -20,6 +22,7 @@ public static class MauiProgram
 			});
 
 #if DEBUG
+		builder.Services.AddScoped<OrdersPage, OrdersViewModel>();
 		builder.Logging.AddDebug();
 #endif
 
