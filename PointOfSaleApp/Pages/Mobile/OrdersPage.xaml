@@ -30,7 +30,7 @@
                 <DataTemplate>
                     <Grid ColumnDefinitions="80,100,*" ColumnSpacing="8" HeightRequest="70" Margin="0,8">
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PayCommand}"/>
+                            <TapGestureRecognizer Command="{Binding BindingContext.PayCommand, Source={x:Reference CvOrder}}"/>
                         </Grid.GestureRecognizers>
                         
                         <Border Stroke="Transparent" StrokeThickness="1" VerticalOptions="Center" HorizontalOptions="Start"
@@ -38,6 +38,9 @@
                             <Border.StrokeShape>
                                 <Ellipse Frame="0,0,60,60"/>
                             </Border.StrokeShape>
+                            <!--<Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.PayCommand, Source={x:Reference CvOrder}}" />
+                            </Border.GestureRecognizers>-->
                             <Grid>
                                 <Label Text="{Binding Table}" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
                             </Grid>

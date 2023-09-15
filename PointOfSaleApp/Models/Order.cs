@@ -1,4 +1,8 @@
 ﻿
+using CommunityToolkit.Mvvm.Input;
+using PointOfSaleApp.Pages.Mobile;
+using System.Diagnostics;
+
 namespace PointOfSaleApp.Models
 {
     public class Order

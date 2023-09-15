@@ -1,4 +1,3 @@
-using Android.Icu.Number;
 using PointOfSaleApp.ViewModels;
 
 namespace PointOfSaleApp.Pages.Mobile;
