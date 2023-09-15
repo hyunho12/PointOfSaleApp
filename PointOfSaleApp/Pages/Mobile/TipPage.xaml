@@ -2,11 +2,108 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.Mobile.TipPage"
+             xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             Shell.NavBarIsVisible="False"
              Title="TipPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:TipViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="ControlTemplate" Value="{StaticResource OptionTemplate}"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="120,160,160,160,66" RowSpacing="20"
+          ColumnDefinitions="*,*" ColumnSpacing="20"
+          RadioButtonGroup.GroupName="TipAmount"
+          RadioButtonGroup.SelectedValue="{Binding Tip}">
+        
+        <VerticalStackLayout VerticalOptions="Center" Spacing="8">
+            <Label Text="Add a Tip" Style="{StaticResource LargeTitle}"/>
+            <Label Text="{Binding Order.Total, StringFormat='Your Bill: ${0}'}"/>
+            <BoxView Style="{StaticResource HRule}"/>
+        </VerticalStackLayout>
+
+        <RadioButton Grid.Row="1" Grid.Column="0" Value="0.15">
+            <RadioButton.Content>
+                <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="15%" Style="{StaticResource LargeTitle}"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Text="Good"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <RadioButton Grid.Row="1" Grid.Column="1">
+            <RadioButton.Content>
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="18%" Style="{StaticResource LargeTitle}"/>
+                            <Span Text="Great"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <RadioButton Grid.Row="2" Grid.Column="0">
+            <RadioButton.Content>
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="20%" Style="{StaticResource LargeTitle}"/>
+                            <Span Text="Wow!"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <RadioButton Grid.Row="2" Grid.Column="1">
+            <RadioButton.Content>
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="30%" Style="{StaticResource LargeTitle}"/>
+                            <Span Text="Best Service Ever"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <RadioButton Grid.Row="3" Grid.Column="0">
+            <RadioButton.Content>
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="No Tip" Style="{StaticResource LargeTitle}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <RadioButton Grid.Row="3" Grid.Column="1">
+            <RadioButton.Content>
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Custom" Style="{StaticResource LargeTitle}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <Button Text="Continue" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="Fill" Command="{Binding ContinueCommand}" />
+    </Grid>
 </ContentPage>

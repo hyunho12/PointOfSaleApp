@@ -15,19 +15,22 @@ namespace PointOfSaleApp.ViewModels
         [RelayCommand]
         private async Task PayAsync(object obj)
         {
-            try
+            //try
+            //{
+            //    var navigationParameter = new Dictionary<string, object>
+            //    {
+            //        {"Order",this }
+            //    };
+            //    await Shell.Current.GoToAsync($"{nameof(OrderDetailsPage)}", navigationParameter);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex.Message);
+            //}
+            await Shell.Current.GoToAsync("OrderDetailsPage", new Dictionary<string, object>
             {
-                var navigationParameter = new Dictionary<string, object>
-                {
-                    {"Order",this }
-                };
-                await Shell.Current.GoToAsync($"{nameof(OrderDetailsPage)}", navigationParameter);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            //await Shell.Current.GoToAsync("OrderDetailsPage");
+                ["Order"] = (Order)obj
+            });
         }
 
         public OrdersViewModel() 

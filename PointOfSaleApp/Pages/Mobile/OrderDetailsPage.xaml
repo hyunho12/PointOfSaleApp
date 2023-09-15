@@ -3,15 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PointOfSaleApp.Pages.Mobile.OrderDetailsPage"
              xmlns:vm="clr-namespace:PointOfSaleApp.ViewModels"
+             Shell.NavBarIsVisible="False"
+             x:Name="OrderDetail"
              Title="OrderDetailsPage">
     <ContentPage.BindingContext>
         <vm:OrderDetailViewModel/>
     </ContentPage.BindingContext>
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to order detail page.NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="120,*,66" Margin="20">
+        <VerticalStackLayout>
+            <Label Text="Current Order" Style="{StaticResource LargeTitle}"/>
+            <Label Text="{Binding Order.Table, StringFormat='TABLE {0}'}" Style="{StaticResource Subhead}"/>
+            <BoxView Style="{StaticResource HRule}"/>
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Order.Items}">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="160,60,*" ColumnSpacing="0" Margin="0,8">
+                    <Label Text="Item" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Headline}"/>
+                    <Label Text="Quantity" Grid.Column="1" VerticalOptions="Center" Style="{StaticResource Headline}"/>
+                    <Label Text="Price" Grid.Column="2" VerticalOptions="Center" Style="{StaticResource Headline}"/>
+                </Grid>
+            </CollectionView.Header>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="160,60,*" Margin="0,8" HeightRequest="50">
+                        <Label Text="{Binding Title}" Grid.Column="0" VerticalOptions="Center"/>
+                        <Label Text="{Binding Quantity}" Grid.Column="1" VerticalOptions="Center"/>
+                        <Label Text="{Binding Price}" Grid.Column="2" VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="20">
+            <Button Grid.Column="0" Text="Add" Command="{Binding AddCommand}" HorizontalOptions="Fill"/>
+            <Button Grid.Column="1" Text="Pay" Command="{Binding PayCommand}" HorizontalOptions="Fill"/>
+        </Grid>
+    </Grid>
 </ContentPage>
