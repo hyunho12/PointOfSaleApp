@@ -17,7 +17,7 @@
     </ContentPage.Resources>
 
     <Grid RowDefinitions="120,160,160,160,66" RowSpacing="20"
-          ColumnDefinitions="*,*" ColumnSpacing="20"
+          ColumnDefinitions="*,*" ColumnSpacing="20" Margin="20"
           RadioButtonGroup.GroupName="TipAmount"
           RadioButtonGroup.SelectedValue="{Binding Tip}">
         
@@ -29,7 +29,7 @@
 
         <RadioButton Grid.Row="1" Grid.Column="0" Value="0.15">
             <RadioButton.Content>
-                <Label VerticalOptions="Center" HorizontalTextAlignment="Center">
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="15%" Style="{StaticResource LargeTitle}"/>
@@ -41,7 +41,7 @@
             </RadioButton.Content>
         </RadioButton>
 
-        <RadioButton Grid.Row="1" Grid.Column="1">
+        <RadioButton Grid.Row="1" Grid.Column="1" Value="0.18">
             <RadioButton.Content>
                 <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
                     <Label.FormattedText>
@@ -54,7 +54,7 @@
             </RadioButton.Content>
         </RadioButton>
 
-        <RadioButton Grid.Row="2" Grid.Column="0">
+        <RadioButton Grid.Row="2" Grid.Column="0" Value="0.20">
             <RadioButton.Content>
                 <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
                     <Label.FormattedText>
@@ -67,12 +67,13 @@
             </RadioButton.Content>
         </RadioButton>
 
-        <RadioButton Grid.Row="2" Grid.Column="1">
+        <RadioButton Grid.Row="2" Grid.Column="1" Value="0.30">
             <RadioButton.Content>
                 <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="30%" Style="{StaticResource LargeTitle}"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
                             <Span Text="Best Service Ever"/>
                         </FormattedString>
                     </Label.FormattedText>
@@ -80,7 +81,7 @@
             </RadioButton.Content>
         </RadioButton>
 
-        <RadioButton Grid.Row="3" Grid.Column="0">
+        <RadioButton Grid.Row="3" Grid.Column="0" Value="0">
             <RadioButton.Content>
                 <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
                     <Label.FormattedText>
@@ -92,7 +93,7 @@
             </RadioButton.Content>
         </RadioButton>
 
-        <RadioButton Grid.Row="3" Grid.Column="1">
+        <RadioButton Grid.Row="3" Grid.Column="1" Value="0">
             <RadioButton.Content>
                 <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
                     <Label.FormattedText>

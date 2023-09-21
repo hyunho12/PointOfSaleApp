@@ -17,7 +17,6 @@
                         <VisualState x:Name="Checked">
                             <VisualState.Setters>
                                 <Setter Property="Stroke" Value="{StaticResource WhiteBrush}"/>
-                                <Setter Property="Background" Value="#72ACF1"/>
                             </VisualState.Setters>
                         </VisualState>
 
@@ -29,6 +28,8 @@
                     </VisualStateGroup>
                 </VisualStateGroupList>
             </VisualStateManager.VisualStateGroups>
+
+            <ContentPresenter />
         </Border>
     </ControlTemplate>
 

@@ -36,12 +36,18 @@ namespace PointOfSaleApp.ViewModels
         }
 
         //[RelayCommand]
-        //private async Task Pay(object obj)
+        //async Task Pay(object obj)
         //{
-        //    await Shell.Current.GoToAsync("TipPage", new Dictionary<string, object>
+        //    try
         //    {
-        //        ["Order"] = (Order)obj
-        //    });
+        //        await Shell.Current.GoToAsync("TipPage", new Dictionary<string, object>
+        //        {
+        //            ["Order"] = (Order)obj
+        //        });
+        //    } catch (Exception ex)
+        //    {
+        //        Debug.WriteLine(ex.Message);
+        //    }            
         //}
 
         [RelayCommand]

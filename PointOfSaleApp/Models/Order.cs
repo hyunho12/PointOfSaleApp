@@ -19,12 +19,13 @@ namespace PointOfSaleApp.Models
         public string Total
         {
             get
-            {
+            {                
                 var tot = Items.Sum(i => (i.Price * i.Quantity));
                 if (Tip != 0)
                 {
                     tot = tot + (tot * Tip);
                 }
+                //return tot.ToString("N3");
                 return tot.ToString("N2");
             }
         }
