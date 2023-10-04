@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PointOfSaleApp.Pages.IdPwFindPage"
+             Title="">
+    
+    <Grid RowDefinitions="50,100,*">
+        <Grid Grid.Row="0" ColumnDefinitions="*,*">
+            <HorizontalStackLayout>
+                <Border Grid.Column="0" Style="{StaticResource EllipseBorderStyle}" Margin="10,0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                    </Border.GestureRecognizers>
+
+                    <Image Source="xmark.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+
+                <Label Text="아이디 · 비밀번호 찾기" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Column="1" Margin="80,0"/>
+
+            </HorizontalStackLayout>
+        </Grid>
+
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+            <RadioButton Content="아이디 찾기" x:Name="IdFind" CheckedChanged="IdPwBtn_CheckedChanged">
+                <RadioButton.ControlTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Border x:Name="IdPwBorder" WidthRequest="166" HeightRequest="40" StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="100"/>
+                                </Border.StrokeShape>
+
+                                <Label x:Name="IdPwLabel" Text="{TemplateBinding Content}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CheckedStates">
+                                        <VisualState x:Name="Checked">
+                                            <VisualState.Setters>
+                                                <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#E74947"/>
+                                                <Setter TargetName="IdPwBorder" Property="Border.Stroke" Value="#E74947"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Unchecked">
+                                            <VisualState.Setters>
+                                                <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#AAAAAA"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </RadioButton.ControlTemplate>
+            </RadioButton>
+            <RadioButton Content="비밀번호 찾기" x:Name="PwFind" CheckedChanged="IdPwBtn_CheckedChanged">
+                <RadioButton.ControlTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Border x:Name="IdPwBorder" WidthRequest="166" HeightRequest="40" StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="100"/>
+                                </Border.StrokeShape>
+
+                                <Label x:Name="IdPwLabel" Text="{TemplateBinding Content}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CheckedStates">
+                                        <VisualState x:Name="Checked">
+                                            <VisualState.Setters>
+                                                <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#E74947"/>
+                                                <Setter TargetName="IdPwBorder" Property="Border.Stroke" Value="#E74947"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Unchecked">
+                                            <VisualState.Setters>
+                                                <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#AAAAAA"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </RadioButton.ControlTemplate>
+            </RadioButton>
+        </HorizontalStackLayout>
+
+        <!--<HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+            <BindableLayout.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>아이디 찾기</x:String>
+                    <x:String>비밀번호 찾기</x:String>
+                </x:Array>
+            </BindableLayout.ItemsSource>
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Content="{Binding .}" Value="{Binding .}" Margin="5,0"
+                                 CheckedChanged="IdPwBtn_CheckedChanged">
+                        <RadioButton.ControlTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Border x:Name="IdPwBorder" WidthRequest="166" HeightRequest="40" StrokeThickness="1">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="100"/>
+                                        </Border.StrokeShape>
+
+                                        <Label x:Name="IdPwLabel" Text="{TemplateBinding Content}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Border>
+
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroupList>
+                                            <VisualStateGroup x:Name="CheckedStates">
+                                                <VisualState x:Name="Checked">
+                                                    <VisualState.Setters>
+                                                        <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#E74947"/>
+                                                        <Setter TargetName="IdPwBorder" Property="Border.Stroke" Value="#E74947"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+
+                                                <VisualState x:Name="Unchecked">
+                                                    <VisualState.Setters>
+                                                        <Setter TargetName="IdPwLabel" Property="Label.TextColor" Value="#AAAAAA"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Grid>
+                            </ControlTemplate>
+                        </RadioButton.ControlTemplate>
+                    </RadioButton>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </HorizontalStackLayout>-->
+
+
+        <!--<Grid Grid.Row="2" >
+            -->
+        <!--<view:IdFindView/>-->
+        <!--<view:PwFindView/>-->
+        <!--
+        </Grid>-->
+    </Grid>
+</ContentPage>

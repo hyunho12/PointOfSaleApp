@@ -16,6 +16,16 @@
             <BoxView Style="{StaticResource HRule}"/>
         </VerticalStackLayout>
         
-        
+        <!--sign-->
+
+        <Label Grid.Row="2" Style="{StaticResource SubTitle}"
+               HorizontalTextAlignment="Center"
+               Text="This signature is probably not the same one you use normally, and to be honest you could pretty much scribble nonsense."/>
+
+        <Grid Grid.Row="4" ColumnDefinitions="*,*" ColumnSpacing="20">
+            <Button Text="Clear" Grid.Column="0" HorizontalOptions="Fill" Style="{StaticResource PrimaryButtonOutline}"/>
+            <Button Text="Done" Grid.Column="1" HorizontalOptions="Fill" Style="{StaticResource PrimaryButtonOutline}" Command="{Binding DoneCommand}"/>
+        </Grid>
+
     </Grid>
 </ContentPage>
